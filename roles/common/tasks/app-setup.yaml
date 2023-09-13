@@ -1,7 +1,7 @@
 - name: check roboshop user exist or not
   ansible.builtin.command: id roboshop
   register: out #output is variable name
-    ignore_errors: true
+  ignore_errors: true
 
 - when: out.rc != 0
   name: create user roboshop
@@ -29,8 +29,8 @@
     url: "https://roboshop-builds.s3.amazonaws.com/{{component}}.zip"
     dest: /tmp
 
-- name: "extract {{component}} artifact"
+- name: extract {{component}} artifact
   ansible.builtin.unarchive:
-    src: "/tmp/{{component}}.zip"
+    src: /tmp/{{component}}.zip
     dest: /app
     remote_src: yes

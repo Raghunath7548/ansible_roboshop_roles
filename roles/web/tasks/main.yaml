@@ -1,7 +1,3 @@
-- name: install web component
-  hosts: web
-  become: yes
-  tasks:
 - name: install nginx
   ansible.builtin.yum:
     name: nginx
@@ -35,8 +31,5 @@
   ansible.builtin.template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
-  
-- name: restart nginx
-  ansible.builtin.service:
-    name: nginx
-    state: restarted
+  notify:
+  - restart nginx

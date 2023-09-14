@@ -9,5 +9,5 @@
 
 - name: restart {{component}}
   ansible.builtin.service:
-    name: catalogue
+    name: {{component}}
     state: restarted

@@ -1,4 +1,4 @@
- - name: configure rabbitmq yum repos
+- name: configure rabbitmq yum repos
   ansible.builtin.shell: "{{item}}"
   loop:
   - "curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash"
